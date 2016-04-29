@@ -1,0 +1,6 @@
+framework module Pods_Segment_Countly_Example {
+  umbrella header "Pods-Segment-Countly_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

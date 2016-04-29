@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'Segment-Countly_Example', :exclusive => true do
+  pod 'Segment-Countly', :path => '../'
+end
+
+target 'Segment-Countly_Tests', :exclusive => true do
+  pod 'Segment-Countly', :path => '../'
+
+  pod 'Specta'
+  pod 'Expecta'
+end

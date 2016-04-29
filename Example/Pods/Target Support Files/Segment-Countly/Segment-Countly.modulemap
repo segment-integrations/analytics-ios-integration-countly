@@ -1,0 +1,6 @@
+framework module Segment_Countly {
+  umbrella header "Segment-Countly-umbrella.h"
+
+  export *
+  module * { export * }
+}
