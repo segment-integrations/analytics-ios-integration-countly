@@ -57,6 +57,17 @@ describe(@"integration", ^{
             @"revenue" : @20
         } count:1 sum:20];
     });
+
+    it(@"screen", ^{
+        SEGScreenPayload *payload = [[SEGScreenPayload alloc] initWithName:@"foo" properties:@{} context:@{} integrations:@{}];
+
+        [integration screen:payload];
+
+        processMainThread();
+
+        [verify(mockCountly) recordEvent:@"Viewed foo Screen" segmentation:@{} count:1];
+    });
+
 });
 
 SpecEnd

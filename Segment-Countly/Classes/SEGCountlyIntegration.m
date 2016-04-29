@@ -23,17 +23,28 @@
 
 - (void)track:(SEGTrackPayload *)payload
 {
+    [self recordEvent:payload.event properties:payload.properties];
+}
+
+- (void)screen:(SEGScreenPayload *)payload
+{
+    NSString *event = [[NSString alloc] initWithFormat:@"Viewed %@ Screen", payload.name];
+    [self recordEvent:event properties:payload.properties];
+}
+
+- (void)recordEvent:(NSString *)event properties:(NSDictionary *)props
+{
     dispatch_async(dispatch_get_main_queue(), ^{
         // Countly doesn't accept nested properties, so remove them (with a warning).
-        NSDictionary *properties = [self ensureNotNested:payload.properties];
+        NSDictionary *nonNestedProperties = [self ensureNotNested:props];
 
-        NSNumber *revenue = [SEGCountlyIntegration extractRevenue:properties withKey:@"revenue"];
+        NSNumber *revenue = [SEGCountlyIntegration extractRevenue:nonNestedProperties withKey:@"revenue"];
         if (revenue) {
-            [self.countly recordEvent:payload.event segmentation:properties count:1 sum:revenue.longValue];
-            SEGLog(@"[[Countly sharedInstance] recordEvent:%@ segmentation:%@ count:1 sum:@count];", payload.event, properties, revenue.longValue);
+            [self.countly recordEvent:event segmentation:nonNestedProperties count:1 sum:revenue.longValue];
+            SEGLog(@"[[Countly sharedInstance] recordEvent:%@ segmentation:%@ count:1 sum:@count];", event, nonNestedProperties, revenue.longValue);
         } else {
-            [self.countly recordEvent:payload.event segmentation:properties count:1];
-            SEGLog(@"[[Countly sharedInstance] recordEvent:%@ segmentation:%@ count:1];", payload.event, properties);
+            [self.countly recordEvent:event segmentation:nonNestedProperties count:1];
+            SEGLog(@"[[Countly sharedInstance] recordEvent:%@ segmentation:%@ count:1];", event, nonNestedProperties);
         }
     });
 }
