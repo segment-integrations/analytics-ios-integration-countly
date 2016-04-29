@@ -82,14 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Segment-Countly_Example/Analytics.framework"
-  install_framework "Pods-Segment-Countly_Example/Countly.framework"
-  install_framework "Pods-Segment-Countly_Example/Segment_Countly.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Segment-Countly_Example/Analytics.framework"
-  install_framework "Pods-Segment-Countly_Example/Countly.framework"
-  install_framework "Pods-Segment-Countly_Example/Segment_Countly.framework"
-fi

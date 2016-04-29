@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C3B89F939245FB55C492EE39'
+               BlueprintIdentifier = '6849A2A86DD8C3E55DEDA89F'
                BlueprintName = 'Segment-Countly'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Segment_Countly.framework'>
+               BuildableName = 'libSegment-Countly.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

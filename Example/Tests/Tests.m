@@ -1,14 +1,14 @@
-//
-//  Segment-CountlyTests.m
-//  Segment-CountlyTests
-//
-//  Created by Prateek Srivastava on 04/29/2016.
-//  Copyright (c) 2016 Prateek Srivastava. All rights reserved.
-//
-
-// https://github.com/Specta/Specta
-
 SpecBegin(InitialSpecs);
+
+describe(@"factory", ^{
+    it(@"creates integration with settings", ^{
+        SEGCountlyIntegration *integration = [[SEGCountlyIntegrationFactory instance] createWithSettings:@{
+        } forAnalytics:nil];
+
+        expect(integration.settings).to.equal(@{});
+        expect(integration.countly).notTo.equal(nil);
+    });
+});
 
 describe(@"these will fail", ^{
 

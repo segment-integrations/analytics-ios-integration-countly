@@ -82,18 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Segment-Countly_Tests/Analytics.framework"
-  install_framework "Pods-Segment-Countly_Tests/Countly.framework"
-  install_framework "Pods-Segment-Countly_Tests/Segment_Countly.framework"
-  install_framework "Pods-Segment-Countly_Tests/Expecta.framework"
-  install_framework "Pods-Segment-Countly_Tests/Specta.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Segment-Countly_Tests/Analytics.framework"
-  install_framework "Pods-Segment-Countly_Tests/Countly.framework"
-  install_framework "Pods-Segment-Countly_Tests/Segment_Countly.framework"
-  install_framework "Pods-Segment-Countly_Tests/Expecta.framework"
-  install_framework "Pods-Segment-Countly_Tests/Specta.framework"
-fi
