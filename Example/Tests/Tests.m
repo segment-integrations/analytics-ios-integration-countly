@@ -1,46 +1,61 @@
+
+void processMainThread()
+{
+    waitUntil(^(DoneCallback done) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            done();
+        });
+    });
+}
+
 SpecBegin(InitialSpecs);
 
 describe(@"factory", ^{
     it(@"creates integration with settings", ^{
         SEGCountlyIntegration *integration = [[SEGCountlyIntegrationFactory instance] createWithSettings:@{
+            @"appKey" : @"foo",
+            @"serverUrl" : @"bar"
         } forAnalytics:nil];
 
-        expect(integration.settings).to.equal(@{});
+        processMainThread();
+
         expect(integration.countly).notTo.equal(nil);
     });
 });
 
-describe(@"these will fail", ^{
+describe(@"integration", ^{
+    __block Countly *mockCountly;
+    __block SEGCountlyIntegration *integration;
 
-    it(@"can do maths", ^{
-        expect(1).to.equal(2);
+    beforeEach(^{
+        mockCountly = mock([Countly class]);
+        integration = [[SEGCountlyIntegration alloc] initWithCountly:mockCountly appKey:@"foo" serverUrl:@"bar"];
     });
 
-    it(@"can read", ^{
-        expect(@"number").to.equal(@"string");
+    it(@"track", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"foo" properties:@{} context:@{} integrations:@{}];
+
+        [integration track:payload];
+
+        processMainThread();
+
+        [verify(mockCountly) recordEvent:@"foo" segmentation:@{} count:1];
     });
 
-    it(@"will wait for 10 seconds and fail", ^{
-        waitUntil(^(DoneCallback done){
+    it(@"track with revenue", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"foo" properties:@{
+            @"revenue" : @20
+        } context:@{}
+            integrations:@{}];
 
-        });
-    });
-});
+        [integration track:payload];
 
-describe(@"these will pass", ^{
+        processMainThread();
 
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
-    });
 
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
-    });
-
-    it(@"will wait and succeed", ^{
-        waitUntil(^(DoneCallback done) {
-            done();
-        });
+        [verify(mockCountly) recordEvent:@"foo" segmentation:@{
+            @"revenue" : @20
+        } count:1 sum:20];
     });
 });
 

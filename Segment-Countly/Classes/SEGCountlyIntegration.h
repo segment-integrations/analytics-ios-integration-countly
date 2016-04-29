@@ -5,9 +5,8 @@
 
 @interface SEGCountlyIntegration : NSObject <SEGIntegration>
 
-@property (nonatomic, readonly) NSDictionary *settings;
 @property (nonatomic, strong) Countly *countly;
 
-- (instancetype)initWithSettings:(NSDictionary *)settings countly:(Countly *)countly;
+- (instancetype)initWithCountly:(Countly *)countly appKey:(NSString *)appKey serverUrl:(NSString *)serverUrl;
 
 @end

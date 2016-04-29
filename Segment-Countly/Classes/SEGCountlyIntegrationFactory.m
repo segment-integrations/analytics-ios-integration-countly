@@ -23,7 +23,10 @@
 
 - (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
 {
-    return [[SEGCountlyIntegration alloc] initWithSettings:settings countly:[Countly sharedInstance]];
+    NSString *appKey = [settings objectForKey:@"appKey"];
+    NSString *serverUrl = [settings objectForKey:@"serverUrl"];
+
+    return [[SEGCountlyIntegration alloc] initWithCountly:[Countly sharedInstance] appKey:appKey serverUrl:serverUrl];
 }
 
 - (NSString *)key
