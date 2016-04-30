@@ -8,7 +8,7 @@
 + (instancetype)instance
 {
     static dispatch_once_t once;
-    static SEGCountlyIntegration *sharedInstance;
+    static SEGCountlyIntegrationFactory *sharedInstance;
     dispatch_once(&once, ^{
         sharedInstance = [[self alloc] init];
     });

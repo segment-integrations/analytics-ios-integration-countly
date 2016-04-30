@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6849A2A86DD8C3E55DEDA89F'
+               BlueprintIdentifier = '22E9F493A1A9DBB472D7CAFE'
                BlueprintName = 'Segment-Countly'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libSegment-Countly.a'>
