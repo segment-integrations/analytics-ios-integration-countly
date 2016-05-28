@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Segment-Countly"
-  s.version          = "0.1.1"
+  s.version          = "1.0.0"
   s.summary          = "Countly Integration for Segment's analytics-ios library."
 
   s.description      = <<-DESC
