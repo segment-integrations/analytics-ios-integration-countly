@@ -8,7 +8,7 @@ Countly integration for analytics-ios.
 
 ## Installation
 
-To install the Segment-Mixpanel integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
+To install the Segment-Countly integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
 ```ruby
 pod "Segment-Countly"
@@ -16,7 +16,7 @@ pod "Segment-Countly"
 
 ## Usage
 
-After adding the dependency, you must register the integration with our SDK.  To do this, import the Mixpanel integration in your `AppDelegate`:
+After adding the dependency, you must register the integration with our SDK.  To do this, import the Countly integration in your `AppDelegate`:
 
 ```
 #import <Segment-Countly/SEGCountlyIntegrationFactory.h>
