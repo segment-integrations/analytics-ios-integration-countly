@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Segment-Countly/Classes/**/*'
 
-  s.dependency 'Analytics', '~> 3.0.7'
+  s.dependency 'Analytics', '~> 3.0'
   s.dependency 'Countly', '~> 16.02'
 end
