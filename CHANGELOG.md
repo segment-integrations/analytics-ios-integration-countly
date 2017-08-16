@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 1.1.0 *(16th August, 2017)*
+Version 1.0.1 *(16th August, 2017)*
 -------------------------------------------
 *(Supports analytics-ios 3.0+ and Countly 16.02+)*
 
