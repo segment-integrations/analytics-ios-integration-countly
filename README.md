@@ -1,6 +1,6 @@
 # Segment-Countly
 
-[![CI Status](http://img.shields.io/travis/segment-integrations/analytics-ios-integration-countly.svg?style=flat)](https://travis-ci.org/segment-integrations/analytics-ios-integration-countly)
+[![CircleCI](https://circleci.com/gh/segment-integrations/analytics-ios-integration-countly.svg?style=svg)](https://circleci.com/gh/segment-integrations/analytics-ios-integration-countly)
 [![Version](https://img.shields.io/cocoapods/v/Segment-Countly.svg?style=flat)](http://cocoapods.org/pods/Segment-Countly)
 [![License](https://img.shields.io/cocoapods/l/Segment-Countly.svg?style=flat)](http://cocoapods.org/pods/Segment-Countly)
 
